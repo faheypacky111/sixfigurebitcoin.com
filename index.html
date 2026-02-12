@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">Premium Bitcoin Domain</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300d4ff'/%3E%3Cstop offset='100%25' style='stop-color:%2300b0d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='12' y='12' width='40' height='40' rx='4' fill='url(%23g)' transform='rotate(45 32 32)'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&family=Lora:wght@400;500;600&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             --space-black: #0a0e27;
@@ -205,17 +206,8 @@
             }
         }
 
-        /* Container */
-        .container {
-            position: relative;
-            z-index: 10;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Domain Dropdown Banner */
-        .domain-banner {
+        /* Center Content */
+        .center-content {
             position: fixed;
             top: 50%;
             left: 50%;
@@ -225,194 +217,72 @@
         }
 
         .banner-text {
-            font-size: 1rem;
+            font-size: 1.25rem;
             text-transform: uppercase;
             letter-spacing: 0.4em;
             color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 25px;
+            margin-bottom: 35px;
             font-family: 'Raleway', sans-serif;
             font-weight: 100;
         }
 
-        .domain-select {
-            background: rgba(0, 0, 0, 0.6);
-            border: none;
-            border-radius: 8px;
-            padding: 14px 35px;
-            color: #E8E8E8;
-            font-size: 1.1rem;
-            font-family: 'Lora', serif;
-            font-weight: 500;
-            font-style: italic;
-            letter-spacing: 0.01em;
-            cursor: pointer;
-            min-width: 320px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            outline: none;
-            text-align: center;
-            box-shadow: none;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-        }
-
-        .domain-select:hover {
-            background: rgba(0, 0, 0, 0.8);
-            box-shadow: none;
-            transform: scale(1.02);
-            color: #FFFFFF;
-        }
-
-        .domain-select:focus {
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: none;
-        }
-
-        .domain-select option {
-            background: #000000;
-            color: #E8E8E8;
-            padding: 15px;
-            border: none;
-            font-family: 'Lora', serif;
-            font-weight: 500;
-            font-style: italic;
-            font-size: 1.35rem;
-        }
-
-        .domain-select option:first-child {
-            color: rgba(255, 255, 255, 0.5);
-            font-style: italic;
-        }
-
-        /* Contact Form Section */
-        .contact-form-wrapper {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 200;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 50px 60px;
-            border-radius: 8px;
-            max-width: 450px;
-            width: 90%;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-            text-align: center;
-        }
-
-        .contact-form-wrapper.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .contact-form-title {
-            font-family: 'Raleway', sans-serif;
+        /* Contact Us Button */
+        .btn-contact {
+            position: relative;
+            display: inline-block;
+            padding: 10px 5px;
+            font-family: 'Space Mono', monospace;
             font-size: 0.8rem;
-            text-transform: uppercase;
+            font-weight: 400;
             letter-spacing: 0.3em;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 15px;
-            font-weight: 100;
-        }
-
-        .contact-form-domain {
-            font-family: 'Lora', serif;
-            font-size: 1.8rem;
-            font-style: italic;
-            color: #FFFFFF;
-            margin-bottom: 45px;
-        }
-
-        .form-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-inquire {
-            flex: 1;
-            padding: 18px 30px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #000000;
-            border: none;
-            border-radius: 4px;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-inquire:hover {
-            background: #FFFFFF;
-            transform: translateY(-2px);
-        }
-
-        .btn-cancel {
-            flex: 1;
-            padding: 18px 30px;
-            background: transparent;
             color: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             cursor: pointer;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
-        .btn-cancel:hover {
-            border-color: rgba(255, 255, 255, 0.4);
-            color: rgba(255, 255, 255, 0.8);
+        .btn-contact::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--electric-blue);
+            transition: width 0.4s ease;
+        }
+
+        .btn-contact:hover {
+            color: var(--electric-blue);
+        }
+
+        .btn-contact:hover::after {
+            width: 100%;
         }
 
         @media (max-width: 768px) {
-            .domain-banner {
-                top: 15px;
-            }
-
-            .domain-select {
-                min-width: 280px;
-                font-size: 1rem;
-                padding: 12px 25px;
-            }
-
             .banner-text {
                 font-size: 0.75rem;
+                letter-spacing: 0.3em;
+                padding: 0 20px;
+            }
+
+            .btn-contact {
+                padding: 14px 40px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Domain Selection Banner -->
-    <div class="domain-banner">
-        <div class="banner-text">Premium Bitcoin Domains Available for Purchase</div>
-        <select class="domain-select" id="domain-selector" onchange="handleDomainChange()">
-            <option value="">Explore Available Domains</option>
-            <option value="allforbitcoin.org">allforbitcoin.org</option>
-            <option value="bitcoinexplosion.com">bitcoinexplosion.com</option>
-            <option value="bitcoinjedi.com">bitcoinjedi.com</option>
-            <option value="bitcoinsformula.com">bitcoinsformula.com</option>
-            <option value="sixfigurebitcoin.com">sixfigurebitcoin.com</option>
-        </select>
-    </div>
-
-    <!-- Contact Form -->
-    <div class="contact-form-wrapper" id="contact-form">
-        <div class="contact-form-title">Interested In</div>
-        <div class="contact-form-domain" id="selected-domain">Domain Name</div>
-        <div class="form-buttons">
-            <button class="btn-inquire" onclick="handleInquire()">Inquire</button>
-            <button class="btn-cancel" onclick="closeContactForm()">Cancel</button>
-        </div>
+    <!-- Center Content -->
+    <div class="center-content">
+        <div class="banner-text">Premium Bitcoin Domain Available for Purchase</div>
+        <a class="btn-contact" href="mailto:admin@namevaultx.com">Contact Us</a>
     </div>
 
     <!-- Cursor Glow Effect -->
@@ -433,49 +303,6 @@
         let mouseX = 0;
         let mouseY = 0;
         let stars = [];
-        let selectedDomainValue = '';
-
-        // Handle Domain Selection Change
-        function handleDomainChange() {
-            const selector = document.getElementById('domain-selector');
-            const selectedDomain = selector.value;
-            
-            if (selectedDomain) {
-                selectedDomainValue = selectedDomain;
-                document.getElementById('selected-domain').textContent = selectedDomain;
-                document.getElementById('contact-form').classList.add('active');
-            }
-        }
-
-        // Close Contact Form
-        function closeContactForm() {
-            document.getElementById('contact-form').classList.remove('active');
-            document.getElementById('domain-selector').selectedIndex = 0;
-        }
-
-        // Handle Inquire Button
-        function handleInquire() {
-            const subject = `Inquiry about ${selectedDomainValue}`;
-            const body = `Hello,%0D%0A%0D%0AI am interested in acquiring ${selectedDomainValue}.%0D%0A%0D%0APlease provide pricing and additional information.%0D%0A%0D%0AThank you.`;
-            
-            window.location.href = `mailto:admin@namevaultx.com?subject=${subject}&body=${body}`;
-            
-            closeContactForm();
-        }
-
-        // Set current domain as selected on load
-        function setCurrentDomain() {
-            const currentDomain = window.location.hostname;
-            const selector = document.getElementById('domain-selector');
-            
-            // Try to match current domain to one of the options
-            for (let option of selector.options) {
-                if (option.value === currentDomain) {
-                    option.selected = true;
-                    break;
-                }
-            }
-        }
 
         // Generate Realistic Starfield with Different Star Sizes
         function createStarfield() {
@@ -486,7 +313,6 @@
                 const star = document.createElement('div');
                 star.className = 'star';
                 
-                // Random star sizes for depth
                 const size = Math.random();
                 let depthFactor = 1;
                 
@@ -507,7 +333,6 @@
                     depthFactor = 1;
                 }
                 
-                // Occasional colored stars (blue/red giants)
                 if (Math.random() > 0.92) {
                     star.classList.add('colored');
                 }
@@ -521,7 +346,6 @@
                 
                 starfield.appendChild(star);
                 
-                // Store star data for parallax
                 stars.push({
                     element: star,
                     x: left,
@@ -554,7 +378,7 @@
         let lastParticleTime = 0;
         function createParticleTrail(e) {
             const now = Date.now();
-            if (now - lastParticleTime < 50) return; // Throttle
+            if (now - lastParticleTime < 50) return;
             lastParticleTime = now;
             
             const particle = document.createElement('div');
@@ -573,7 +397,6 @@
             updateCursorGlow(e);
             updateStarParallax(e);
             
-            // Occasional particle trail
             if (Math.random() > 0.7) {
                 createParticleTrail(e);
             }
@@ -611,7 +434,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             createStarfield();
             randomShootingStars();
-            setCurrentDomain();
         });
     </script>
 </body>
